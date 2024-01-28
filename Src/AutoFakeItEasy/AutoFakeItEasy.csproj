@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\Common.props" />
+
+  <PropertyGroup>
+    <TargetFrameworks>net452;net462;netstandard1.6;netstandard2.0</TargetFrameworks>
+    <AssemblyTitle>AutoFakeItEasy</AssemblyTitle>
+    <AssemblyName>AutoFixture.AutoFakeItEasy</AssemblyName>
+    <RootNamespace>AutoFixture.AutoFakeItEasy</RootNamespace>
+    <Copyright>Copyright © Ploeh 2011</Copyright>
+
+    <!-- NuGet options -->
+    <PackageId>AutoFixture.AutoFakeItEasy</PackageId>
+    <Title>AutoFixture with Auto Mocking using FakeItEasy</Title>
+    <Description>This extension turns AutoFixture into an Auto-Mocking Container. The mock instances are created by FakeItEasy. To use it, add the AutoFakeItEasyCustomization to your Fixture instance.</Description>
+    <Authors>Nikos Baxevanis,AutoFixture</Authors>
+
+    <!--  Suppress warning about invalid dependency version in Castle.Core.
+          That is FakeItEasy dependency and we cannot fix that somehow. -->
+    <NoWarn>$(NoWarn);NU1603</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FakeItEasy" Version="[1.7.4109.1,8.0.0)" Condition=" '$(TargetFramework)'=='net452' " />
+    <PackageReference Include="FakeItEasy" Version="[1.7.4109.1,9.0.0)" Condition=" '$(TargetFramework)'=='net462' " />
+    <PackageReference Include="FakeItEasy" Version="[3.0.0,7.0.0)" Condition=" '$(TargetFramework)'=='netstandard1.6' " />
+    <PackageReference Include="FakeItEasy" Version="[4.9.0,9.0.0)" Condition=" '$(TargetFramework)'=='netstandard2.0' " />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AutoFixture\AutoFixture.csproj" />
+  </ItemGroup>
+</Project>

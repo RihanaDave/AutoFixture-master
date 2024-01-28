@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\Common.props" />
+  <Import Project="..\Common.Test.props" />
+  <Import Project="..\Common.Test.xUnit.props" />
+
+  <PropertyGroup>
+    <TargetFrameworks>net452;netcoreapp2.1</TargetFrameworks>
+    <AssemblyTitle>IdiomsUnitTest</AssemblyTitle>
+    <AssemblyName>AutoFixture.IdiomsUnitTest</AssemblyName>
+    <RootNamespace>AutoFixture.IdiomsUnitTest</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AutoFixture\AutoFixture.csproj" />
+    <ProjectReference Include="..\Idioms\Idioms.csproj" />
+    <ProjectReference Include="..\TestTypeFoundation\TestTypeFoundation.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+  </ItemGroup>
+</Project>

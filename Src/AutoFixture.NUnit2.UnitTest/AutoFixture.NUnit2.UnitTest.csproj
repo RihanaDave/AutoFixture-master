@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\Common.props" />
+  <Import Project="..\Common.Test.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net452</TargetFramework>
+    <AssemblyTitle>AutoFixture.NUnit2.UnitTest</AssemblyTitle>
+    <AssemblyName>AutoFixture.NUnit2.UnitTest</AssemblyName>
+    <RootNamespace>AutoFixture.NUnit2.UnitTest</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="2.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AutoFixture.NUnit2\AutoFixture.NUnit2.csproj" />
+    <ProjectReference Include="..\AutoFixture\AutoFixture.csproj" />
+    <ProjectReference Include="..\TestTypeFoundation\TestTypeFoundation.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="nunit.core.interfaces">
+      <HintPath>..\..\References\NUnit.2.6.2\nunit.core.interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+  </ItemGroup>
+</Project>

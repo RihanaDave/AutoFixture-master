@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\Common.props" />
+  <Import Project="..\Common.FSharp.props" />
+  <Import Project="..\Common.Test.props" />
+  <Import Project="..\Common.Test.xUnit.props" />
+
+  <PropertyGroup>
+    <TargetFrameworks>net452;netcoreapp2.1</TargetFrameworks>
+    <AssemblyTitle>AutoFixture.Idioms.FsCheckUnitTest</AssemblyTitle>
+    <AssemblyName>AutoFixture.Idioms.FsCheckUnitTest</AssemblyName>
+    <RootNamespace>AutoFixture.Idioms.FsCheckUnitTest</RootNamespace>
+    <!-- Skip warning about invalid AssemblyInformationalVersion attribute in F# projects -->
+    <NoWarn>FS2003</NoWarn>
+    <Deterministic>false</Deterministic>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="TestDsl.fs" />
+    <Compile Include="TestTypes.fs" />
+    <Compile Include="ReturnValueMustNotBeNullAssertionTest.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Unquote" Version="4.0.0" />
+    <PackageReference Include="FSharp.Core" Version="[4.2.3]" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AutoFixture\AutoFixture.csproj" />
+    <ProjectReference Include="..\Idioms\Idioms.csproj" />
+    <ProjectReference Include="..\Idioms.FsCheck\Idioms.FsCheck.fsproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\Common.props" />
+  <Import Project="..\Common.FSharp.props" />
+
+  <PropertyGroup>
+    <TargetFrameworks>net452;netstandard2.0</TargetFrameworks>
+    <AssemblyTitle>AutoFixture.AutoFoq</AssemblyTitle>
+    <AssemblyName>AutoFixture.AutoFoq</AssemblyName>
+    <RootNamespace>AutoFixture.AutoFoq</RootNamespace>
+    <Copyright>Copyright © Ploeh 2013</Copyright>
+    <SignAssembly>False</SignAssembly>
+    <!-- Disable source link support for F# projects as they don't support this feature. -->
+    <SourceLinkCreate>false</SourceLinkCreate>
+    <!-- Skip warning about invalid AssemblyInformationalVersion attribute in F# projects. And about wrong FSharp version during restore. -->
+    <NoWarn>FS2003;NU1601</NoWarn>
+    <Deterministic>false</Deterministic>
+
+    <!-- NuGet options -->
+    <PackageId>AutoFixture.AutoFoq</PackageId>
+    <Title>AutoFixture with Auto Mocking using Foq</Title>
+    <Description>This extension turns AutoFixture into an Auto-Mocking Container. The mock instances are created by Foq. To use it, add the AutoFoqCustomization to your Fixture instance.</Description>
+    <Authors>Nikos Baxevanis,AutoFixture</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.fs" />
+    <Compile Include="GlobalSuppressions.fs" />
+    <Compile Include="FoqType.fs" />
+    <Compile Include="FoqMethod.fs" />
+    <Compile Include="FoqMethodQuery.fs" />
+    <Compile Include="AutoFoqCustomization.fs" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="Foq" Version="[1.8.0,2.0.0)" />
+    <PackageReference Include="FSharp.Core" Version="4.2.3" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net452'">
+    <PackageReference Include="Foq" Version="[1.5.1,2.0.0)" />
+    <PackageReference Include="FSharp.Core" Version="[3.0.2,5.0.0)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AutoFixture\AutoFixture.csproj" />
+  </ItemGroup>
+
+</Project>

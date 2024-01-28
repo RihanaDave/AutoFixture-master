@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\Common.props" />
+  <Import Project="..\Common.Test.props" />
+
+  <PropertyGroup>
+    <TargetFrameworks>net452;netcoreapp1.1;netcoreapp2.1</TargetFrameworks>
+    <AssemblyTitle>AutoFixture.NUnit3.UnitTest</AssemblyTitle>
+    <AssemblyName>AutoFixture.NUnit3.UnitTest</AssemblyName>
+    <RootNamespace>AutoFixture.NUnit3.UnitTest</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="[3.0.1]" Condition=" '$(TargetFramework)'=='net452' " />
+    <PackageReference Include="NUnit" Version="[3.7.0]" Condition=" '$(TargetFramework)'=='netcoreapp1.1' " />
+    <PackageReference Include="NUnit" Version="[3.10.1]" Condition=" '$(TargetFramework)'=='netcoreapp2.1' " />
+    
+    <PackageReference Include="NUnit3TestAdapter" Version="3.8.0"/>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AutoFixture\AutoFixture.csproj" />
+    <ProjectReference Include="..\AutoFixture.NUnit3\AutoFixture.NUnit3.csproj" />
+    <ProjectReference Include="..\TestTypeFoundation\TestTypeFoundation.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)'=='net452' ">
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+  </ItemGroup>
+</Project>
